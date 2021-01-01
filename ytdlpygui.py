@@ -22,7 +22,14 @@ def dn():
                 m.showerror('ERROR', 'ERROR, Link may invalid.')
     else:
         yt = link.get()
-        ydl_opts = {}
+        ydl_opts = {
+           'format': 'bestaudio/best',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp4',
+                'preferredquality': '192',
+                }],
+        }
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             try:
                 ydl.download([yt])
