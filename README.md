@@ -1,3 +1,9 @@
+- REQUIRED MODULES
+Tkinter, youtube_dl
+
+
+
+- COMPILING
 trying to compile to .exe or whatever? try it using pyinstaller.
 
 
