@@ -22,14 +22,7 @@ def dn():
                 m.showerror('ERROR', 'ERROR, Link may invalid.')
     else:
         yt = link.get()
-        ydl_opts = {
-           'format': 'bestaudio/best',
-            'postprocessors': [{
-                'key': 'FFmpegExtractAudio',
-                'preferredcodec': 'mp4',
-                'preferredquality': '192',
-                }],
-        }
+        ydl_opts = {}
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             try:
                 ydl.download([yt])
@@ -41,6 +34,7 @@ def clear():
     link.delete(0, "end")
     link.insert(0, "")
 root = tk.Tk()
+root.resizable(False, False)
 root.title('YT Vid Downloader')
 link = tk.Entry(root, text='Link')
 link.grid(row=0)
